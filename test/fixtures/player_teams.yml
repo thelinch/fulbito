@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  is_activo: false
+  player: one
+  team: one
+
+two:
+  is_activo: false
+  player: two
+  team: two

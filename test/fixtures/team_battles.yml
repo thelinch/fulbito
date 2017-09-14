@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  is_win: false
+  team: one
+  battle: one
+
+two:
+  is_win: false
+  team: two
+  battle: two

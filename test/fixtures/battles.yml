@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: 2017-08-28 17:23:03
+  bet: 1
+  date: 2017-08-28 17:23:03
+
+two:
+  time: 2017-08-28 17:23:03
+  bet: 1
+  date: 2017-08-28 17:23:03

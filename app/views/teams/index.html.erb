@@ -1,0 +1,56 @@
+<% if @teams.length ==0%>
+  <span>No hay teams</span>
+  <%else %>
+    <div class="row">
+      <%@teams.each do |team| %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card medium hoverable ">
+            <span style="display:none"><%=team.id%></span>
+            <div class="carta-titulo">
+              <div class="carta-titulo__imagen" data-titulo=<%=team.name%>>
+                <img src="http://lorempixel.com/400/200/sports" alt="" class="circle responsive-img" />
+              </div>
+            </div>
+            <%  if team.player_teams.exists?(player:@player,is_activo:true) %>
+              <div class="card-icon">
+                <i class="material-icons large">favorite</i>
+              </div>
+              <div class="card-content amber accent-3">
+                <div class="numero_jugadores">
+                  <ul class="center-align">
+                    <li>
+                      <i class="material-icons small">face</i>
+                      <strong><%=team.player_teams.where(is_activo:true,team:team).count()%></strong>
+                    </li>
+                    <li> <i class="material-icons small ">flash_on</i>
+                      <strong><%=team.reputation%></strong></li>
+                  </ul>
+                </div>
+              </div>
+              <%else%>
+                <div class="card-content">
+                  <div class="numero_jugadores">
+                    <ul class="center-align">
+                      <li>
+                        <i class="material-icons small">face</i>
+                        <strong><%=team.player_teams.where(is_activo:true,team:team).count()%></strong>
+                      </li>
+                      <li> <i class="material-icons small ">flash_on</i>
+                        <strong><%=team.reputation%></strong></li>
+                    </ul>
+                  </div>
+
+                </div>
+                <%end%>
+                  <div class="card-action">
+                    <%= link_to  "Detalles",controller:"teams",action:"show",player_id:@player.id,team_id:team.id %>
+                  </div>
+          </div>
+
+        </div>
+
+        <%end%>
+    </div>
+    <%end%>
+      <%= link_to  "Crear un ecuentro deportivo",controller:"battles",action:"new",player_id:@player.id%>
+        <%= link_to  "crear equipo",teams_new_path %>

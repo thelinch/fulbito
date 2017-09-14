@@ -1,0 +1,40 @@
+<p>index</p>
+<table class="responsive-table">
+  <thead>
+    <tr>
+      <th data-field="name">Nombre</th>
+      <th data-field="reputation">Reputacion</th>
+      <th data-field="plays_win">juegos ganados</th>
+      <th data-field="plays_lose">Juegos perdidos</th>
+      <th data-field="price">Funciones</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <%@players.each do |player|%>
+      <tr>
+        <td>
+          <%=player.name%>
+        </td>
+        <td>
+          <%=player.reputation%>
+        </td>
+        <td>
+          <%=player.plays_win%>
+        </td>
+        <td>
+          <%=player.plays_lose%>
+        </td>
+        <td>
+          <% if player.teams.length ==0%>
+            <%= link_to  "agregar equipo",  controller:"teams" ,action:"new", player_id:player.id %>
+              <%else%>
+                <%= link_to  "Cambiar de equipo",controller:"teams",action:"index",player_id:player.id%>
+                  <%end%>
+
+        </td>
+      </tr>
+      <%end%>
+  </tbody>
+</table>
+<%= link_to  "Crea un jugador", players_new_path %>

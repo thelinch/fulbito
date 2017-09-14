@@ -1,0 +1,22 @@
+<%= form_for @battle ,url:{action: :create} do |f| %>
+  <div>
+    <p>
+      <%=f.label :time,"Ingrese el tiempo del partido"%>
+    </p>
+    <p>
+      <%=f.number_field :time,{value:@battle.time} %>
+    </p>
+  </div>
+  <div>
+    <p>
+      <%=f.label :bet,"Ingrese la apuesta del partido"%>
+    </p>
+    <p>
+      <%=f.number_field :bet,{value:@battle.bet} %>
+    </p>
+  </div>
+  <div>
+    <%=f.submit "crear encuentro "%>
+  </div>
+
+  <% end %>
